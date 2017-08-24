@@ -23,8 +23,8 @@ RawBlameHistory
   "scripts": {
     "test": "mocha",
     "build": "gulp build",
-    "execute": "node js/ageconverter"
     "execute": "nodejs/wdiurban"
+
   },
   "author": "StackRoute",
   "license": "Apache-2.0",
