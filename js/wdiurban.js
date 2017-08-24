@@ -88,7 +88,7 @@
 //          console.log('JSON written successfully')
         });
       });
-//      return 'JSON written successfully';
+      return 'JSON written successfully';
   };
   // convert(2);
   module.exports = convert(2004);
