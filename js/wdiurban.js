@@ -25,6 +25,7 @@
     let urbanPop = 0;
     let ruralPer = 0;
     let urbanPer = 0;
+    let line2 = [];
     const re = /,(?=(?:(?:[^']*'){2})*[^']+$)/;
     // var i=0;
     /* rl.on('data', (chunk) => {
@@ -33,25 +34,25 @@
     rl.on('line', function(line) {
       // temp.push(line.split('\n'));
       // console.log(temp);
-      line = line.split(re);
+      line2 = line.split(re);
       // to run it only once of index row
       if(count === 0) {
         // below are the columns indexes taken out by the names
-        country = line.indexOf('CountryName');
-        type = line.indexOf('IndicatorName');
-        year = line.indexOf('Year');
-        value = line.indexOf('Value');
+        country = line2.indexOf('CountryName');
+        type = line2.indexOf('IndicatorName');
+        year = line2.indexOf('Year');
+        value = line2.indexOf('Value');
         //  console.log(country+ ' '+ type+ ' ' + year+ ' ' +value);
         count = 1; }
         // filter as per requirement
-        if(line[country] === 'India') {
+        if(line2[country] === 'India') {
           // if(typeof(line[year])===Number){
-          if(line[type] === 'Urban population') {
+          if(line2[type] === 'Urban population') {
           //  console.log(line[value] + ' ' + line[type] + ' year is ' + line[year]);
-          urbanPop = line[value];}
-          if(line[type] === 'Rural population') {
+          urbanPop = line2[value];}
+          if(line2[type] === 'Rural population') {
           // console.log(line[value] + ' ' + line[type] +' year is ' + line[year]);
-          ruralPop = line[value];}
+          ruralPop = line2[value];}
           // condition until both populations are not found while traversing line  by line.
           if(Number(ruralPop) !== 0 && Number(urbanPop) !== 0)
           {
@@ -66,8 +67,8 @@
             /*  the below code will push the result into the
             variable as an object which will be written
             into JSON format/file later */
-            result.push({country: line[country],
-              ruralPop: ruralPer, year: line[year], urbanPop: urbanPer});
+            result.push({country: line2[country],
+              ruralPop: ruralPer, year: line2[year], urbanPop: urbanPer});
             ruralPop = 0;
             urbanPop = 0;
       // console.log('After India condition')
