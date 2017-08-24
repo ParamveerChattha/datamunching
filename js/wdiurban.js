@@ -7,7 +7,7 @@
     let fs = require('fs');
     // adding readline module
     let readline = require('readline');
-    // path for the csv file
+    // path for the csv file . 
     let path = '../inputdata/indicators.csv';
     // var read_stream = fs.createReadStream('');
     // interface to read each line until eof
